@@ -1,0 +1,25 @@
+# Ignore artifacts:
+build
+coverage
+node_modules
+
+# Ignore logs:
+*.log
+
+# Ignore environment files:
+.env
+.env.local
+.env.*.local
+
+# Ignore editor settings:
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Ignore specific files:
+package-lock.json
+yarn.lock
