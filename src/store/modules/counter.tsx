@@ -6,6 +6,9 @@ const counterSlice = createSlice({
     message: 'hello',
   },
   reducers: {
+    changeMesssageAction: (state, { payload }) => {
+      state.message = payload;
+    },
     increment: (state) => {
       state.count += 1;
     },
@@ -14,4 +17,5 @@ const counterSlice = createSlice({
     },
   },
 });
+export const { changeMesssageAction } = counterSlice.actions;
 export default counterSlice.reducer;

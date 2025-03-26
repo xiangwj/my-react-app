@@ -4,8 +4,9 @@ import './App.css';
 import routes from './router';
 import { Link, useRoutes } from 'react-router-dom';
 import Download from './views/download';
-import { useSelector, shallowEqual } from 'react-redux';
-import store, { useAppSelector, IRootSateType } from './store';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import store, { useAppSelector, useAppDispatch } from './store';
+import { changeMesssageAction } from './store/modules/counter';
 function App() {
   const { count, message } = useAppSelector(
     (state) => ({
@@ -14,6 +15,10 @@ function App() {
     }),
     shallowEqual
   );
+  const handleChangeMessage = (message: string) => {
+    dispatch(changeMesssageAction(message));
+  };
+  const dispatch = useAppDispatch();
   return (
     <div className="App">
       <div className="nav">
@@ -24,6 +29,9 @@ function App() {
         <div>
           <h2>count::{count}</h2>
           <h2>message::{message}</h2>
+          <button onClick={() => handleChangeMessage('hahahaa')}>
+            click me
+          </button>
         </div>
         <Suspense fallback={<div>loading...</div>}>
           <div>{useRoutes(routes)}</div>
